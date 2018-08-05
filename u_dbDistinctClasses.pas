@@ -1,6 +1,6 @@
-unit u_dbDistinctClasses;
-/// вспомогательный модуль для специальных функций работы с базой данных
-/// процедуры SQL и прочие объединены в класс т.к. у них общее соединение с данными
+п»їunit u_dbDistinctClasses;
+/// РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РјРѕРґСѓР»СЊ РґР»СЏ СЃРїРµС†РёР°Р»СЊРЅС‹С… С„СѓРЅРєС†РёР№ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
+/// РїСЂРѕС†РµРґСѓСЂС‹ SQL Рё РїСЂРѕС‡РёРµ РѕР±СЉРµРґРёРЅРµРЅС‹ РІ РєР»Р°СЃСЃ С‚.Рє. Сѓ РЅРёС… РѕР±С‰РµРµ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ РґР°РЅРЅС‹РјРё
 interface
 
 uses System.Types, System.UITypes, System.Classes, System.Variants,
@@ -16,18 +16,18 @@ type
     public
       constructor Create(AOwner:TComponent); override;
       /// <summary>
-      ///      найти в текстовом поле набора значение вида ФФФ 1  ППП 2
-      ///      - в нем найти максимальный номер, добавить к нему 1 и вернуть полученное или 1(нет записей)
+      ///      РЅР°Р№С‚Рё РІ С‚РµРєСЃС‚РѕРІРѕРј РїРѕР»Рµ РЅР°Р±РѕСЂР° Р·РЅР°С‡РµРЅРёРµ РІРёРґР° Р¤Р¤Р¤ 1  РџРџРџ 2
+      ///      - РІ РЅРµРј РЅР°Р№С‚Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ, РґРѕР±Р°РІРёС‚СЊ Рє РЅРµРјСѓ 1 Рё РІРµСЂРЅСѓС‚СЊ РїРѕР»СѓС‡РµРЅРЅРѕРµ РёР»Рё 1(РЅРµС‚ Р·Р°РїРёСЃРµР№)
       /// </summary>
       function GetIncMaxNumFromFieldText(const aDS:TDataSet; const aFieldname: String):Integer;
       /// <summary>
-      ///     найти в базе (по указанным именам таблиц и полей в виде TABLENAME1=FIELDNAME1,TblName2=FieldName2)
-      ///     хотя бы одну запись - true or (Not found = false)
+      ///     РЅР°Р№С‚Рё РІ Р±Р°Р·Рµ (РїРѕ СѓРєР°Р·Р°РЅРЅС‹Рј РёРјРµРЅР°Рј С‚Р°Р±Р»РёС† Рё РїРѕР»РµР№ РІ РІРёРґРµ TABLENAME1=FIELDNAME1,TblName2=FieldName2)
+      ///     С…РѕС‚СЏ Р±С‹ РѕРґРЅСѓ Р·Р°РїРёСЃСЊ - true or (Not found = false)
       /// </summary>
       function IsExistsRecordsFromID(aID:Integer; const ATblNamesFieldsStr:string):Boolean;
       ///
       /// <summary>
-      ///    создание запроса-таблицы с указанными полями для тек. соединения
+      ///    СЃРѕР·РґР°РЅРёРµ Р·Р°РїСЂРѕСЃР°-С‚Р°Р±Р»РёС†С‹ СЃ СѓРєР°Р·Р°РЅРЅС‹РјРё РїРѕР»СЏРјРё РґР»СЏ С‚РµРє. СЃРѕРµРґРёРЅРµРЅРёСЏ
       /// </summary>
       function CreateFDQuery(const AQName,ACommaFieldsStr,aAfterWhereStr:string; aEntID:Integer=0):TFDQuery;
       function CreateFDTable(const ATblName:string; aEntID:Integer=0):TFDTable;

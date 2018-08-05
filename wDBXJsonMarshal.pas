@@ -1,4 +1,4 @@
-unit wDBXJsonMarshal;
+﻿unit wDBXJsonMarshal;
 
 interface
 
